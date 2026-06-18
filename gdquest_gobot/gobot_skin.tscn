@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://02pjlm1ilk3w" path="res://addons/gdquest_gobot/gobot_skin.gd" id="1_rwke8"]
 [ext_resource type="Texture2D" uid="uid://cfdf62ci74tew" path="res://addons/gdquest_gobot/textures/closed_eyes.png" id="3_atmtp"]
 [ext_resource type="Texture2D" uid="uid://dq675fmt1rg8c" path="res://addons/gdquest_gobot/textures/open_eye.png" id="3_aysq5"]
-[ext_resource type="AnimationLibrary" uid="uid://k45w5evgjbtp" path="res://addons/gdquest_gobot/model/custom/custom_lib.res" id="6_vjupt"]
+[ext_resource type="AnimationLibrary" uid="uid://k45w5evgjbtp" path="res://addons/gdquest_gobot/custom_animations/custom_lib.res" id="6_vjupt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4001"]
 render_priority = 1
@@ -26,6 +26,57 @@ albedo_texture = ExtResource("3_aysq5")
 roughness = 0.6
 uv1_offset = Vector3(0.1, 0, 0)
 texture_repeat = false
+
+[sub_resource type="Animation" id="Animation_c7pi5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Gobot:surface_material_override/1:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_aysq5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Gobot:surface_material_override/2:albedo_texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_aysq5")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D/Gobot:material_overlay:albedo_color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D/Gobot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_o2ond"]
 resource_name = "EdgeGrab"
@@ -1063,57 +1114,6 @@ tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = PackedFloat32Array(0, 1, 0.0298192, 0.0194152, 0.000472977, 0.999367)
 
-[sub_resource type="Animation" id="Animation_c7pi5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Gobot:surface_material_override/1:albedo_texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_aysq5")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Gobot:surface_material_override/2:albedo_texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_aysq5")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D/Gobot:material_overlay:albedo_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.972549, 0.27451, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D/Gobot:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_5nggx"]
 resource_name = "Run"
 length = 0.6
@@ -1946,23 +1946,23 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.0298192, -0.0194152, -0.000472976, 0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_03he3"]
 _data = {
-&"EdgeGrab": SubResource("Animation_o2ond"),
-&"Fall": SubResource("Animation_ra5uo"),
-&"Flip": SubResource("Animation_m4elg"),
-&"Idle": SubResource("Animation_80s3p"),
-&"Jump": SubResource("Animation_hoyaw"),
 &"RESET": SubResource("Animation_c7pi5"),
-&"Run": SubResource("Animation_5nggx"),
-&"VictorySign": SubResource("Animation_vrhq2"),
-&"Walk": SubResource("Animation_eg26g"),
-&"WallSlide": SubResource("Animation_pii0g")
+&"edge_grab": SubResource("Animation_o2ond"),
+&"fall": SubResource("Animation_ra5uo"),
+&"flip": SubResource("Animation_m4elg"),
+&"idle": SubResource("Animation_80s3p"),
+&"jump": SubResource("Animation_hoyaw"),
+&"run": SubResource("Animation_5nggx"),
+&"victory_sign": SubResource("Animation_vrhq2"),
+&"walk": SubResource("Animation_eg26g"),
+&"wall_slide": SubResource("Animation_pii0g")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g4wg5"]
 animation = &"custom_lib/hurt"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oi1x1"]
-animation = &"Flip"
+animation = &"flip"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5to6b"]
 fadein_time = 0.2
@@ -1972,41 +1972,67 @@ fadeout_time = 0.2
 mix_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2b6eb"]
-animation = &"EdgeGrab"
+animation = &"edge_grab"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fj7in"]
-animation = &"Fall"
+animation = &"fall"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rkjh"]
-animation = &"Idle"
+animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gnq7n"]
-animation = &"Jump"
+animation = &"jump"
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_c6v15"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_ge76d"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q8y1g"]
-animation = &"Run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l1uic"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mhg17"]
 animation = &"custom_lib/run_step"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_01yhm"]
-graph_offset = Vector2(-300.033, 68.2149)
-nodes/output/position = Vector2(560, 80)
-nodes/Add2/node = SubResource("AnimationNodeAdd2_c6v15")
-nodes/Add2/position = Vector2(320, 120)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_q8y1g")
-nodes/Animation/position = Vector2(120, 100)
-nodes/Step/node = SubResource("AnimationNodeAnimation_l1uic")
-nodes/Step/position = Vector2(100, 220)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"Step"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x5eul"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_n25xx"]
+graph_offset = Vector2(-6.4, 63.2)
+nodes/output/position = Vector2(640, 144)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_ge76d")
+nodes/Add2/position = Vector2(400, 128)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_x5eul")
+nodes/Walk/position = Vector2(144, 96)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_mhg17")
+"nodes/Animation 2/position" = Vector2(144, 288)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Walk", &"Add2", 1, &"Animation 2"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_x50t6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ge76d"]
+animation = &"custom_lib/walk_step"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e376u"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3368a"]
+nodes/output/position = Vector2(704, 144)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_x50t6")
+nodes/Add2/position = Vector2(464, 128)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_e376u")
+nodes/Animation/position = Vector2(224, 64)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_ge76d")
+"nodes/Animation 2/position" = Vector2(224, 272)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_n25xx"]
+blend_point_0/node = SubResource("AnimationNodeBlendTree_n25xx")
+blend_point_0/pos = 1.0
+blend_point_0/name = &"BlendTree 2"
+blend_point_1/node = SubResource("AnimationNodeBlendTree_3368a")
+blend_point_1/pos = -1.0
+blend_point_1/name = &"BlendTree"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1d5g"]
-animation = &"VictorySign"
+animation = &"victory_sign"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fakhc"]
-animation = &"WallSlide"
+animation = &"wall_slide"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sjbi1"]
 advance_mode = 2
@@ -2029,24 +2055,6 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_slt1s"]
 xfade_time = 0.1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sftgr"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rqio1"]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqjfl"]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7c7xu"]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8p8m5"]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g3ni0"]
-xfade_time = 0.1
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utcak"]
 xfade_time = 0.1
 
@@ -2065,27 +2073,45 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_llrwj"]
 xfade_time = 0.1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdo0e"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iducu"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_orep7"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2byr"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n25xx"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x50t6"]
+xfade_time = 0.1
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fdt88"]
 states/EdgeGrab/node = SubResource("AnimationNodeAnimation_2b6eb")
 states/EdgeGrab/position = Vector2(452, 298)
 states/Fall/node = SubResource("AnimationNodeAnimation_fj7in")
-states/Fall/position = Vector2(452, 196)
+states/Fall/position = Vector2(451.36002, 196.95999)
 states/Idle/node = SubResource("AnimationNodeAnimation_1rkjh")
 states/Idle/position = Vector2(452, 99)
 states/Jump/node = SubResource("AnimationNodeAnimation_gnq7n")
 states/Jump/position = Vector2(588, 196)
-states/Run/node = SubResource("AnimationNodeBlendTree_01yhm")
-states/Run/position = Vector2(588, 95)
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_n25xx")
+states/Move/position = Vector2(587.3888, 100.23245)
 states/Start/position = Vector2(322, 100)
 states/VictorySign/node = SubResource("AnimationNodeAnimation_f1d5g")
-states/VictorySign/position = Vector2(452, 18)
+states/VictorySign/position = Vector2(452.288, 18.7463)
 states/WallSlide/node = SubResource("AnimationNodeAnimation_fakhc")
 states/WallSlide/position = Vector2(588, 298)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sjbi1"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_wchuq"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_iwlv2"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_v20h8"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_oh2i0"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_iahjh"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_slt1s"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sftgr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_rqio1"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_lqjfl"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_7c7xu"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_8p8m5"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_g3ni0"), "Fall", "EdgeGrab", SubResource("AnimationNodeStateMachineTransition_utcak"), "EdgeGrab", "Jump", SubResource("AnimationNodeStateMachineTransition_sg0e6"), "Fall", "WallSlide", SubResource("AnimationNodeStateMachineTransition_2psp0"), "WallSlide", "Jump", SubResource("AnimationNodeStateMachineTransition_wsvct"), "Idle", "VictorySign", SubResource("AnimationNodeStateMachineTransition_uar4f"), "VictorySign", "Idle", SubResource("AnimationNodeStateMachineTransition_llrwj")]
-graph_offset = Vector2(-40.65625, 39.820313)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sjbi1"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_wchuq"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_iwlv2"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_v20h8"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_oh2i0"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_iahjh"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_slt1s"), "Fall", "EdgeGrab", SubResource("AnimationNodeStateMachineTransition_utcak"), "EdgeGrab", "Jump", SubResource("AnimationNodeStateMachineTransition_sg0e6"), "Fall", "WallSlide", SubResource("AnimationNodeStateMachineTransition_2psp0"), "WallSlide", "Jump", SubResource("AnimationNodeStateMachineTransition_wsvct"), "Idle", "VictorySign", SubResource("AnimationNodeStateMachineTransition_uar4f"), "VictorySign", "Idle", SubResource("AnimationNodeStateMachineTransition_llrwj"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_mdo0e"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_iducu"), "Move", "Fall", SubResource("AnimationNodeStateMachineTransition_orep7"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_x2byr"), "Jump", "EdgeGrab", SubResource("AnimationNodeStateMachineTransition_n25xx"), "Jump", "WallSlide", SubResource("AnimationNodeStateMachineTransition_x50t6")]
+graph_offset = Vector2(39.34375, -57.179688)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8xvna"]
-graph_offset = Vector2(-138.41621, 25.140614)
+graph_offset = Vector2(-204.8, -58.4)
 nodes/output/position = Vector2(580, 80)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_g4wg5")
 nodes/Animation/position = Vector2(192, 352)
@@ -2102,27 +2128,26 @@ node_connections = [&"output", 0, &"HurtShot", &"FlipShot", 0, &"StateMachine", 
 [node name="GobotSkin" type="Node3D" unique_id=387738634 node_paths=PackedStringArray("gobot_model")]
 script = ExtResource("1_rwke8")
 gobot_model = NodePath("gobot/Armature/Skeleton3D/Gobot")
-blink = false
-_left_eye_mat_override = "surface_material_override/1"
-_right_eye_mat_override = "surface_material_override/2"
-_open_eye = ExtResource("3_aysq5")
-_close_eye = ExtResource("3_atmtp")
+left_eye_mat_override = "surface_material_override/1"
+right_eye_mat_override = "surface_material_override/2"
+opened_eye = ExtResource("3_aysq5")
+closed_eye = ExtResource("3_atmtp")
 
 [node name="gobot" parent="." unique_id=772802592 instance=ExtResource("1_qg1mb")]
 
-[node name="Skeleton3D" parent="gobot/Armature" parent_id_path=PackedInt32Array(772802592, 432904200) index="0" unique_id=1957278164]
+[node name="Skeleton3D" parent="gobot/Armature" parent_id_path=PackedInt32Array(772802592, 1240856902) index="0" unique_id=1531086632]
 bones/0/position = Vector3(0.125361, 0.0989139, 0.0728901)
 bones/0/rotation = Quaternion(0.77254915, 0.10769103, -0.13622104, 0.61074907)
 bones/1/position = Vector3(-0.109875, 0.0989111, -0.0510765)
 bones/1/rotation = Quaternion(0.6793683, -0.31008515, 0.39223418, 0.5370832)
-bones/2/position = Vector3(0, 0.35047296, 0)
-bones/2/rotation = Quaternion(0.069754526, 0.0075125764, -0.00052533095, 0.9975358)
-bones/3/rotation = Quaternion(1, -1.7775352e-11, -7.563902e-08, -6.0215397e-09)
-bones/4/rotation = Quaternion(-0.4966063, -0.1528882, -0.056897283, 0.8525081)
-bones/5/rotation = Quaternion(0.39433348, 1.043825e-06, -1.34647635e-05, 0.9189675)
-bones/6/rotation = Quaternion(-0.23800625, 0.5281559, 0.22876881, 0.7823486)
-bones/7/rotation = Quaternion(0.52639765, -9.779516e-07, 1.8004117e-05, 0.85023856)
-bones/8/rotation = Quaternion(-0.7075123, -0.246093, -0.59412134, 0.29306066)
+bones/2/position = Vector3(0, 0.35406983, 0)
+bones/2/rotation = Quaternion(0.06975542, -0.0054282267, 0.0003795784, 0.9975493)
+bones/3/rotation = Quaternion(1, -2.851022e-11, -7.5499486e-08, -7.2480746e-09)
+bones/4/rotation = Quaternion(-0.4743476, -0.16649596, -0.05922118, 0.8624189)
+bones/5/rotation = Quaternion(0.37002364, 1.0570334e-06, -1.263508e-05, 0.9290224)
+bones/6/rotation = Quaternion(-0.23702492, 0.5182466, 0.2129557, 0.7936558)
+bones/7/rotation = Quaternion(0.5037085, -9.822422e-07, 1.7230179e-05, 0.8638738)
+bones/8/rotation = Quaternion(-0.7116961, -0.24401407, -0.5891031, 0.29479405)
 bones/9/rotation = Quaternion(2.1693694e-07, 5.3554083e-07, -0.3950289, 0.91866875)
 bones/10/rotation = Quaternion(-0.28973204, -0.6374582, -0.21743803, 0.6800171)
 bones/11/rotation = Quaternion(0.48790604, -0.017439902, 0.008545421, 0.87268007)
@@ -2130,7 +2155,7 @@ bones/12/rotation = Quaternion(-0.3712239, -0.0019769692, 0.005853659, 0.9285228
 bones/13/rotation = Quaternion(-0.5023331, 1.5004906e-05, -2.8505408e-05, 0.86467415)
 bones/14/rotation = Quaternion(-0.3712239, -0.0019769794, 0.0058536893, 0.9285228)
 bones/15/rotation = Quaternion(-0.5023331, 1.4999904e-05, -2.8506805e-05, 0.86467415)
-bones/16/rotation = Quaternion(-0.60434467, 0.28945237, 0.69879985, 0.2503271)
+bones/16/rotation = Quaternion(-0.5993881, 0.29121503, 0.7030561, 0.24827404)
 bones/17/rotation = Quaternion(2.2720293e-07, -5.847489e-07, 0.3950289, 0.91866875)
 bones/18/rotation = Quaternion(-0.28973204, 0.6374582, 0.21743803, 0.6800171)
 bones/19/rotation = Quaternion(0.48790604, 0.017439902, -0.008545411, 0.87268007)
@@ -2141,14 +2166,30 @@ bones/23/rotation = Quaternion(-0.5023331, -1.5003405e-05, 2.8491406e-05, 0.8646
 bones/24/position = Vector3(0, 0.189977, 0)
 bones/24/rotation = Quaternion(-0.06975651, 4.5896506e-08, 3.0345004e-09, 0.99756414)
 
-[node name="Gobot" parent="gobot/Armature/Skeleton3D" index="0" unique_id=1442326933]
+[node name="Gobot" parent="gobot/Armature/Skeleton3D" index="0" unique_id=821553289]
 material_overlay = SubResource("StandardMaterial3D_t4001")
 surface_material_override/1 = SubResource("StandardMaterial3D_u0n88")
 surface_material_override/2 = SubResource("StandardMaterial3D_68dk0")
 
-[node name="AnimationPlayer" parent="gobot" index="1" unique_id=1616876231]
+[node name="AnimationPlayer" parent="gobot" index="1" unique_id=1948255178]
 libraries/ = SubResource("AnimationLibrary_03he3")
 libraries/custom_lib = ExtResource("6_vjupt")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=62406248]
+unique_name_in_owner = true
+deterministic = false
+root_node = NodePath("%AnimationTree/../gobot")
+tree_root = SubResource("AnimationNodeBlendTree_8xvna")
+anim_player = NodePath("../gobot/AnimationPlayer")
+parameters/FlipShot/active = false
+parameters/FlipShot/internal_active = false
+parameters/FlipShot/request = 0
+parameters/HurtShot/active = false
+parameters/HurtShot/internal_active = false
+parameters/HurtShot/request = 0
+parameters/StateMachine/Move/blend_position = 0.0
+"parameters/StateMachine/Move/BlendTree 2/Add2/add_amount" = 1.0
+parameters/StateMachine/Move/BlendTree/Add2/add_amount = 1.0
 
 [node name="BlinkTimer" type="Timer" parent="." unique_id=1256929395]
 unique_name_in_owner = true
@@ -2161,18 +2202,5 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 autostart = true
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=62406248]
-unique_name_in_owner = true
-root_node = NodePath("%AnimationTree/../gobot")
-tree_root = SubResource("AnimationNodeBlendTree_8xvna")
-anim_player = NodePath("../gobot/AnimationPlayer")
-parameters/FlipShot/active = false
-parameters/FlipShot/internal_active = false
-parameters/FlipShot/request = 0
-parameters/HurtShot/active = false
-parameters/HurtShot/internal_active = false
-parameters/HurtShot/request = 0
-parameters/StateMachine/Run/Add2/add_amount = 1.0
 
 [editable path="gobot"]
